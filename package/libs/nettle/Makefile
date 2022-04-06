@@ -8,17 +8,25 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=nettle
+<<<<<<< HEAD
 PKG_VERSION:=3.6
+=======
+PKG_VERSION:=3.5.1
+>>>>>>> parent of c6ba5c98 (Update Makefile)
 PKG_RELEASE:=1
 PKG_USE_MIPS16:=0
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@GNU/nettle
+<<<<<<< HEAD
 PKG_HASH:=d24c0d0f2abffbc8f4f34dcf114b0f131ec3774895f3555922fe2f40f3d5e3f1
+=======
+PKG_HASH:=75cca1998761b02e16f2db56da52992aef622bf55a3b45ec538bc2eedadc9419
+>>>>>>> parent of c6ba5c98 (Update Makefile)
 
-PKG_LICENSE:=GPL-2.0-or-later
+PKG_LICENSE:=GPL-2.0+
 PKG_LICENSE_FILES:=COPYING
-PKG_BUILD_PARALLEL:=1
+PKG_BUILD_PARALLEL:=0
 
 PKG_CONFIG_DEPENDS := CONFIG_LIBNETTLE_MINI
 
@@ -30,7 +38,7 @@ define Package/libnettle
   TITLE:=GNU crypto library
   URL:=http://www.lysator.liu.se/~nisse/nettle/
   DEPENDS+= +!LIBNETTLE_MINI:libgmp
-  ABI_VERSION:=8
+  ABI_VERSION:=7
 endef
 
 define Package/libnettle/config
@@ -55,11 +63,6 @@ CONFIGURE_ARGS += \
 	--enable-arm-neon
 endif
 
-ifeq ($(ARCH),armeb)
-CONFIGURE_ARGS += \
-	--disable-assembler
-endif
-
 define Build/Compile
 	$(call Build/Compile/Default, \
 		DESTDIR="$(PKG_INSTALL_DIR)" \
@@ -71,22 +74,22 @@ define Build/Compile
 endef
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include/nettle
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/nettle/*.h $(1)/opt/include/nettle/
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libnettle.{a,so*} $(1)/opt/lib/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libhogweed.{a,so*} $(1)/opt/lib/
-	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
+	$(INSTALL_DIR) $(1)/usr/include/nettle
+	$(CP) $(PKG_INSTALL_DIR)/usr/include/nettle/*.h $(1)/usr/include/nettle/
+	$(INSTALL_DIR) $(1)/usr/lib
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libnettle.{a,so*} $(1)/usr/lib/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libhogweed.{a,so*} $(1)/usr/lib/
+	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig
 	$(CP) \
-		$(PKG_INSTALL_DIR)/opt/lib/pkgconfig/nettle.pc \
-		$(PKG_INSTALL_DIR)/opt/lib/pkgconfig/hogweed.pc \
-		$(1)/opt/lib/pkgconfig/
+		$(PKG_INSTALL_DIR)/usr/lib/pkgconfig/nettle.pc \
+		$(PKG_INSTALL_DIR)/usr/lib/pkgconfig/hogweed.pc \
+		$(1)/usr/lib/pkgconfig/
 endef
 
 define Package/libnettle/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libnettle.so.* $(1)/opt/lib/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libhogweed.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)/usr/lib
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libnettle.so.* $(1)/usr/lib/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libhogweed.so.* $(1)/usr/lib/
 endef
 
 $(eval $(call BuildPackage,libnettle))
