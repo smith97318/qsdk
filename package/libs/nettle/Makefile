@@ -8,21 +8,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=nettle
-<<<<<<< HEAD
 PKG_VERSION:=3.6
-=======
-PKG_VERSION:=3.5.1
->>>>>>> parent of c6ba5c98 (Update Makefile)
 PKG_RELEASE:=1
 PKG_USE_MIPS16:=0
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@GNU/nettle
-<<<<<<< HEAD
 PKG_HASH:=d24c0d0f2abffbc8f4f34dcf114b0f131ec3774895f3555922fe2f40f3d5e3f1
-=======
-PKG_HASH:=75cca1998761b02e16f2db56da52992aef622bf55a3b45ec538bc2eedadc9419
->>>>>>> parent of c6ba5c98 (Update Makefile)
 
 PKG_LICENSE:=GPL-2.0+
 PKG_LICENSE_FILES:=COPYING
