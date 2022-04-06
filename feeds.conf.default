@@ -1,0 +1,5 @@
+src-git packages https://source.codeaurora.org/quic/qsdk/oss/system/feeds/packages^8fae33c65974eb9d500ebba406be427f2db4522e
+src-git luci https://git.openwrt.org/project/luci.git
+src-git routing https://source.codeaurora.org/quic/qsdk/oss/system/feeds/routing^298c7044ba21c9d8d3b8bc6183e35305d57ad1dd
+src-git telephony https://git.openwrt.org/feed/telephony.git;openwrt-19.07
+src-git freifunk https://github.com/freifunk/openwrt-packages.git;openwrt-19.07

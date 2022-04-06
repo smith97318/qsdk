@@ -1,0 +1,24 @@
+#!/bin/sh /etc/rc.common
+# Copyright (c) 2021 Qualcomm Technologies, Inc.
+#
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+#
+
+START=98
+
+SERVICE_WRITE_PID=1
+SERVICE_DAEMONIZE=1
+
+start() {
+    service_start /usr/sbin/time-services-app
+}
+
+stop() {
+    service_stop /usr/sbin/time-services-app
+}
+
+restart() {
+    stop
+    start
+}

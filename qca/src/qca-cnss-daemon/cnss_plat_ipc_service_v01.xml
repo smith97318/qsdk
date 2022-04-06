@@ -1,0 +1,1728 @@
+<IDLDescription idl=".\CI_Kodiak.LA.1.0-00353_DEF_AU820-STD.INT-7\vendor\qcom\proprietary\wlan\cnss-daemon\cnss_plat_ipc_service_v01.idl">
+  <section title="file documentation">
+    <DESCRIPTION>
+  This specification documents Major Version 1 of the Qualcomm technologies, Inc
+  Messaging Interface (QMI) for WLAN cnss platform driver and daemon components.
+
+  CNSS plaform has two components: a kernel driver and user space daemon. These
+  components interact for calibration and QDSS functionality. CNSS platform driver
+  communicates the information from this exchanges to WLAN firmware.
+
+</DESCRIPTION>
+    <BRIEF>QMI Service definitions for IPC between CNSS platform driver and daemon
+
+</BRIEF>
+    <NAME>cnss_plat_ipc_service_v01.idl</NAME>
+    <REVERSE_SERVICE>0</REVERSE_SERVICE>
+    <COPYRIGHT>Copyright (c) 2021 Qualcomm Technologies, Inc.
+  All Rights Reserved.
+  Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+
+</COPYRIGHT>
+  </section>
+  <section title="command documentation">
+    <command identifier="CNSS_PLAT_IPC_QMI_INIT_SETUP">
+      <commandid>0x0001</commandid>
+      <brief>This command is for exchanging setup information
+</brief>
+      <cmd_version>1.0
+</cmd_version>
+      <description>
+This command exchanges info between the userspace and kernel space for config and status.
+
+</description>
+      <errors>
+   QMI_ERR_NONE        No error in the request
+   QMI_ERR_INTERNAL    Unexpected error occurred during processing
+
+</errors>
+      <usage>Production</usage>
+      <securityLevel>Low Risk</securityLevel>
+      <securitySublevels></securitySublevels>
+      <requiredActions>
+        <requiredAction>Default</requiredAction>
+      </requiredActions>
+      <requiredActionOther></requiredActionOther>
+      <securitySublevelOther></securitySublevelOther>
+      <sequence>1</sequence>
+    </command>
+    <command identifier="CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD_IND">
+      <commandid>0x0002</commandid>
+      <brief>This command sends file download indication from cnss platform driver
+</brief>
+      <cmd_version>1.0
+</cmd_version>
+      <usage>Production</usage>
+      <securityLevel>Low Risk</securityLevel>
+      <securitySublevels></securitySublevels>
+      <requiredActions>
+        <requiredAction>Default</requiredAction>
+      </requiredActions>
+      <requiredActionOther></requiredActionOther>
+      <securitySublevelOther></securitySublevelOther>
+      <sequence>2</sequence>
+    </command>
+    <command identifier="CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD">
+      <commandid>0x0003</commandid>
+      <brief>This command sends file data from daemon to platform driver
+</brief>
+      <cmd_version>1.0
+</cmd_version>
+      <description>
+This command sends file data to driver.
+
+</description>
+      <errors>
+   QMI_ERR_NONE        No error in the request
+   QMI_ERR_INTERNAL    Unexpected error occurred during processing
+
+</errors>
+      <usage>Production</usage>
+      <securityLevel>Low Risk</securityLevel>
+      <securitySublevels></securitySublevels>
+      <requiredActions>
+        <requiredAction>Default</requiredAction>
+      </requiredActions>
+      <requiredActionOther></requiredActionOther>
+      <securitySublevelOther></securitySublevelOther>
+      <sequence>3</sequence>
+    </command>
+    <command identifier="CNSS_PLAT_IPC_QMI_FILE_UPLOAD_IND">
+      <commandid>0x0004</commandid>
+      <brief>This command tells client to update local-stored file data
+</brief>
+      <cmd_version>1.0
+</cmd_version>
+      <usage>Production</usage>
+      <securityLevel>Low Risk</securityLevel>
+      <securitySublevels></securitySublevels>
+      <requiredActions>
+        <requiredAction>Default</requiredAction>
+      </requiredActions>
+      <requiredActionOther></requiredActionOther>
+      <securitySublevelOther></securitySublevelOther>
+      <sequence>4</sequence>
+    </command>
+    <command identifier="CNSS_PLAT_IPC_QMI_FILE_UPLOAD">
+      <commandid>0x0005</commandid>
+      <brief>This command request file data from cnss platform driver
+</brief>
+      <cmd_version>1.0
+</cmd_version>
+      <description>
+This command sends file data from driver.
+
+</description>
+      <errors>
+   QMI_ERR_NONE        No error in the request
+   QMI_ERR_INTERNAL    Unexpected error occurred during processing
+
+</errors>
+      <usage>Production</usage>
+      <securityLevel>Low Risk</securityLevel>
+      <securitySublevels></securitySublevels>
+      <requiredActions>
+        <requiredAction>Default</requiredAction>
+      </requiredActions>
+      <requiredActionOther></requiredActionOther>
+      <securitySublevelOther></securitySublevelOther>
+      <sequence>5</sequence>
+    </command>
+    <command identifier="CNSS_PLAT_IPC_QMI_REG_CLIENT">
+      <commandid>0x0006</commandid>
+      <brief>This command is for QMI client registration
+</brief>
+      <cmd_version>1.0
+</cmd_version>
+      <description>
+Userspace QMI client registration with QMI server in kernel space
+
+</description>
+      <errors>
+   QMI_ERR_NONE        No error in the request
+   QMI_ERR_INTERNAL    Unexpected error occurred during processing
+
+</errors>
+      <usage>Production</usage>
+      <securityLevel>Low Risk</securityLevel>
+      <securitySublevels></securitySublevels>
+      <requiredActions>
+        <requiredAction>Default</requiredAction>
+      </requiredActions>
+      <requiredActionOther></requiredActionOther>
+      <securitySublevelOther></securitySublevelOther>
+      <sequence>6</sequence>
+    </command>
+  </section>
+  <section title="include files">
+    <file>common_v01.idl</file>
+  </section>
+  <section title="consts">
+    <const identifier="QMI_FALSE">
+      <value>0x00</value>
+      <isinteger>1</isinteger>
+      <isincluded>1</isincluded>
+      <description>
+
+
+
+</description>
+    </const>
+    <const identifier="QMI_TRUE">
+      <value>0x01</value>
+      <isinteger>1</isinteger>
+      <isincluded>1</isincluded>
+      <description></description>
+    </const>
+    <const identifier="QMI_GET_SUPPORTED_MESSAGES_ARRAY_MAX">
+      <value>8192</value>
+      <isinteger>1</isinteger>
+      <isincluded>1</isincluded>
+      <description></description>
+    </const>
+    <const identifier="QMI_GET_SUPPORTED_FIELDS_ARRAY_MAX">
+      <value>32</value>
+      <isinteger>1</isinteger>
+      <isincluded>1</isincluded>
+      <description></description>
+    </const>
+    <const identifier="CNSS_PLAT_IPC_QMI_MAX_DATA_SIZE">
+      <value>61440</value>
+      <isinteger>1</isinteger>
+      <isincluded>0</isincluded>
+      <description> Max data size 60KB</description>
+    </const>
+    <const identifier="CNSS_PLAT_IPC_QMI_MAX_MSG_SIZE">
+      <value>65535</value>
+      <isinteger>1</isinteger>
+      <isincluded>0</isincluded>
+      <description> Max QMI msg size including the data buffer</description>
+    </const>
+    <const identifier="CNSS_PLAT_IPC_QMI_MAX_FILE_NAME_LEN">
+      <value>32</value>
+      <isinteger>1</isinteger>
+      <isincluded>0</isincluded>
+      <description> File name in root fs</description>
+    </const>
+  </section>
+  <section title="typedefs"></section>
+  <section title="sequence_nums">
+    <types>0</types>
+    <msgs>10</msgs>
+  </section>
+  <section title="types">
+    <type identifier="cnss_driver_status_bitmask">
+      <command></command>
+      <msg></msg>
+      <msgalias></msgalias>
+      <type>mask</type>
+      <n>1</n>
+      <sizeof>cnss_driver_status_bitmask_v01</sizeof>
+      <wiresize>8</wiresize>
+      <isvarwiresize></isvarwiresize>
+      <isarray>0</isarray>
+      <isvararray>0</isvararray>
+      <isenum>0</isenum>
+      <ismask>1</ismask>
+      <ismessage>0</ismessage>
+      <isoptional>0</isoptional>
+      <isstruct>0</isstruct>
+      <isstring>0</isstring>
+      <islengthless></islengthless>
+      <set16bitflag>0</set16bitflag>
+      <set32bitflag>0</set32bitflag>
+      <tlvtype>0</tlvtype>
+      <sequence>0</sequence>
+      <description></description>
+      <elementlist>
+        <mask identifier="CNSS_PLAT_IPC_QMI_DRIVER_CBC_DONE" value="0x01" />
+        <mask identifier="CNSS_PLAT_IPC_QMI_DRIVER_WLAN_ACTIVE" value="0x02" />
+      </elementlist>
+    </type>
+    <type identifier="cnss_plat_ipc_qmi_client_id">
+      <command></command>
+      <msg></msg>
+      <msgalias></msgalias>
+      <type>enum</type>
+      <n>1</n>
+      <sizeof>cnss_plat_ipc_qmi_client_id_v01</sizeof>
+      <wiresize>4</wiresize>
+      <isvarwiresize></isvarwiresize>
+      <isarray>0</isarray>
+      <isvararray>0</isvararray>
+      <isenum>1</isenum>
+      <ismask>0</ismask>
+      <ismessage>0</ismessage>
+      <isoptional>0</isoptional>
+      <isstruct>0</isstruct>
+      <isstring>0</isstring>
+      <islengthless></islengthless>
+      <set16bitflag>0</set16bitflag>
+      <set32bitflag>0</set32bitflag>
+      <tlvtype>0</tlvtype>
+      <sequence>0</sequence>
+      <description></description>
+      <elementlist>
+        <enum identifier="CNSS_PLAT_IPC_BT_QMI_CLIENT" value="0" />
+        <enum identifier="CNSS_PLAT_IPC_DAEMON_QMI_CLIENT" value="1" />
+      </elementlist>
+    </type>
+    <type identifier="cnss_plat_ipc_qmi_init_setup_req_msg">
+      <command>CNSS_PLAT_IPC_QMI_INIT_SETUP</command>
+      <msg>CNSS_PLAT_IPC_QMI_INIT_SETUP_REQ</msg>
+      <msgalias></msgalias>
+      <type>message</type>
+      <n>1</n>
+      <sizeof>struct cnss_plat_ipc_qmi_init_setup_req_msg</sizeof>
+      <wiresize>15</wiresize>
+      <isvarwiresize>0</isvarwiresize>
+      <isarray>0</isarray>
+      <isvararray>0</isvararray>
+      <isenum>0</isenum>
+      <ismask>0</ismask>
+      <ismessage>1</ismessage>
+      <isoptional>0</isoptional>
+      <isstruct>0</isstruct>
+      <isstring>0</isstring>
+      <islengthless>0</islengthless>
+      <set16bitflag>0</set16bitflag>
+      <set32bitflag>0</set32bitflag>
+      <tlvtype>0</tlvtype>
+      <sequence>0</sequence>
+      <description>
+        <TYPE>Request </TYPE>
+        <SENDER>Control point </SENDER>
+      </description>
+      <elementlist>
+        <type identifier="dms_mac_addr_supported">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>boolean</type>
+          <primitivetype>boolean</primitivetype>
+          <n>1</n>
+          <csize>1</csize>
+          <sizeof>uint8_t</sizeof>
+          <wiresize>1</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x01</tlvtype>
+          <typedescription> Platform Modem (DMS) support for MAC Address provisioning in NV</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+        <type identifier="qdss_hw_trace_override">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>boolean</type>
+          <primitivetype>boolean</primitivetype>
+          <n>1</n>
+          <csize>1</csize>
+          <sizeof>uint8_t</sizeof>
+          <wiresize>1</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x02</tlvtype>
+          <typedescription> QDSS override - Android Property</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+        <type identifier="cal_file_available_bitmask">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>uint32</type>
+          <primitivetype>uint32</primitivetype>
+          <n>1</n>
+          <csize>6</csize>
+          <sizeof>uint32_t</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x03</tlvtype>
+          <typedescription> CNSS Calibration file availability. Uses wlfw_cal_temp_id_enum from wlan_firmware_service IDL</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+      </elementlist>
+    </type>
+    <type identifier="cnss_plat_ipc_qmi_init_setup_resp_msg">
+      <command>CNSS_PLAT_IPC_QMI_INIT_SETUP</command>
+      <msg>CNSS_PLAT_IPC_QMI_INIT_SETUP_RESP</msg>
+      <msgalias></msgalias>
+      <type>message</type>
+      <n>1</n>
+      <sizeof>struct cnss_plat_ipc_qmi_init_setup_resp_msg</sizeof>
+      <wiresize>18</wiresize>
+      <isvarwiresize>0</isvarwiresize>
+      <isarray>0</isarray>
+      <isvararray>0</isvararray>
+      <isenum>0</isenum>
+      <ismask>0</ismask>
+      <ismessage>1</ismessage>
+      <isoptional>0</isoptional>
+      <isstruct>0</isstruct>
+      <isstring>0</isstring>
+      <islengthless>0</islengthless>
+      <set16bitflag>0</set16bitflag>
+      <set32bitflag>0</set32bitflag>
+      <tlvtype>0</tlvtype>
+      <sequence>1</sequence>
+      <description>
+        <TYPE>Response </TYPE>
+        <SENDER>Service </SENDER>
+      </description>
+      <elementlist>
+        <type identifier="resp">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>qmi_response_type</type>
+          <primitivetype>struct</primitivetype>
+          <n>1</n>
+          <csize>8</csize>
+          <sizeof>qmi_response_type_v01</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x02</tlvtype>
+          <typedescription> Result Code</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+        <type identifier="drv_status">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>cnss_driver_status_bitmask</type>
+          <primitivetype>mask</primitivetype>
+          <n>1</n>
+          <csize>8</csize>
+          <sizeof>cnss_driver_status_bitmask_v01</sizeof>
+          <wiresize>8</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x03</tlvtype>
+          <typedescription> CNSS Platform driver status</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+      </elementlist>
+    </type>
+    <type identifier="cnss_plat_ipc_qmi_file_download_ind_msg">
+      <command>CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD_IND</command>
+      <msg>CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD_IND</msg>
+      <msgalias></msgalias>
+      <type>message</type>
+      <n>1</n>
+      <sizeof>struct cnss_plat_ipc_qmi_file_download_ind_msg</sizeof>
+      <wiresize>42</wiresize>
+      <isvarwiresize>1</isvarwiresize>
+      <isarray>0</isarray>
+      <isvararray>0</isvararray>
+      <isenum>0</isenum>
+      <ismask>0</ismask>
+      <ismessage>1</ismessage>
+      <isoptional>0</isoptional>
+      <isstruct>0</isstruct>
+      <isstring>0</isstring>
+      <islengthless>0</islengthless>
+      <set16bitflag>0</set16bitflag>
+      <set32bitflag>0</set32bitflag>
+      <tlvtype>0</tlvtype>
+      <sequence>2</sequence>
+      <description>
+        <TYPE>Indication </TYPE>
+        <SENDER>Control point </SENDER>
+      </description>
+      <elementlist>
+        <type identifier="file_name">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>string</type>
+          <primitivetype>string</primitivetype>
+          <n>CNSS_PLAT_IPC_QMI_MAX_FILE_NAME_LEN</n>
+          <csize>33</csize>
+          <sizeof>char * CNSS_PLAT_IPC_QMI_MAX_FILE_NAME_LEN</sizeof>
+          <wiresize>32</wiresize>
+          <isvarwiresize>1</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>1</isstring>
+          <islengthless>1</islengthless>
+          <tlvtype>0x01</tlvtype>
+          <typedescription> File name</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+        <type identifier="file_id">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>uint32</type>
+          <primitivetype>uint32</primitivetype>
+          <n>1</n>
+          <csize>7</csize>
+          <sizeof>uint32_t</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x02</tlvtype>
+          <typedescription> File ID corresponding to file name. Used in file download request from daemon</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+      </elementlist>
+    </type>
+    <type identifier="cnss_plat_ipc_qmi_file_download_req_msg">
+      <command>CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD</command>
+      <msg>CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD_REQ</msg>
+      <msgalias></msgalias>
+      <type>message</type>
+      <n>1</n>
+      <sizeof>struct cnss_plat_ipc_qmi_file_download_req_msg</sizeof>
+      <wiresize>61470</wiresize>
+      <isvarwiresize>1</isvarwiresize>
+      <isarray>0</isarray>
+      <isvararray>0</isvararray>
+      <isenum>0</isenum>
+      <ismask>0</ismask>
+      <ismessage>1</ismessage>
+      <isoptional>0</isoptional>
+      <isstruct>0</isstruct>
+      <isstring>0</isstring>
+      <islengthless>0</islengthless>
+      <set16bitflag>0</set16bitflag>
+      <set32bitflag>0</set32bitflag>
+      <tlvtype>0</tlvtype>
+      <sequence>3</sequence>
+      <description>
+        <TYPE>Request </TYPE>
+        <SENDER>Control point </SENDER>
+      </description>
+      <elementlist>
+        <type identifier="file_id">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>uint32</type>
+          <primitivetype>uint32</primitivetype>
+          <n>1</n>
+          <csize>4</csize>
+          <sizeof>uint32_t</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x01</tlvtype>
+          <typedescription> File ID corresponding to file name. Received from file download indication from driver</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+        <type identifier="file_size">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>uint32</type>
+          <primitivetype>uint32</primitivetype>
+          <n>1</n>
+          <csize>4</csize>
+          <sizeof>uint32_t</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x02</tlvtype>
+          <typedescription> File total size</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+        <type identifier="end">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>boolean</type>
+          <primitivetype>boolean</primitivetype>
+          <n>1</n>
+          <csize>1</csize>
+          <sizeof>uint8_t</sizeof>
+          <wiresize>1</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x03</tlvtype>
+          <typedescription> File download msg end marker. Last segment is identified based on this.</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+        <type identifier="seg_index">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>uint32</type>
+          <primitivetype>uint32</primitivetype>
+          <n>1</n>
+          <csize>7</csize>
+          <sizeof>uint32_t</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x04</tlvtype>
+          <typedescription> File buf seg index</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+        <type identifier="seg_buf">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>uint8</type>
+          <primitivetype>uint8</primitivetype>
+          <n>CNSS_PLAT_IPC_QMI_MAX_DATA_SIZE</n>
+          <csize>61441</csize>
+          <sizeof>uint8_t * CNSS_PLAT_IPC_QMI_MAX_DATA_SIZE</sizeof>
+          <wiresize>61440</wiresize>
+          <isvarwiresize>1</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>1</isvararray>
+          <set16bitflag>1</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x05</tlvtype>
+          <typedescription> File seg buf</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield>seg_buf_len</lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+      </elementlist>
+    </type>
+    <type identifier="cnss_plat_ipc_qmi_file_download_resp_msg">
+      <command>CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD</command>
+      <msg>CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD_RESP</msg>
+      <msgalias></msgalias>
+      <type>message</type>
+      <n>1</n>
+      <sizeof>struct cnss_plat_ipc_qmi_file_download_resp_msg</sizeof>
+      <wiresize>21</wiresize>
+      <isvarwiresize>0</isvarwiresize>
+      <isarray>0</isarray>
+      <isvararray>0</isvararray>
+      <isenum>0</isenum>
+      <ismask>0</ismask>
+      <ismessage>1</ismessage>
+      <isoptional>0</isoptional>
+      <isstruct>0</isstruct>
+      <isstring>0</isstring>
+      <islengthless>0</islengthless>
+      <set16bitflag>0</set16bitflag>
+      <set32bitflag>0</set32bitflag>
+      <tlvtype>0</tlvtype>
+      <sequence>4</sequence>
+      <description>
+        <TYPE>Response </TYPE>
+        <SENDER>Service </SENDER>
+      </description>
+      <elementlist>
+        <type identifier="resp">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>qmi_response_type</type>
+          <primitivetype>struct</primitivetype>
+          <n>1</n>
+          <csize>8</csize>
+          <sizeof>qmi_response_type_v01</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x02</tlvtype>
+          <typedescription> Result Code</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+        <type identifier="file_id">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>uint32</type>
+          <primitivetype>uint32</primitivetype>
+          <n>1</n>
+          <csize>4</csize>
+          <sizeof>uint32_t</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x03</tlvtype>
+          <typedescription> File ID corresponding to file name.</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+        <type identifier="seg_index">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>uint32</type>
+          <primitivetype>uint32</primitivetype>
+          <n>1</n>
+          <csize>4</csize>
+          <sizeof>uint32_t</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x04</tlvtype>
+          <typedescription> Acknowledge status of file buf seg index received.</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+      </elementlist>
+    </type>
+    <type identifier="cnss_plat_ipc_qmi_file_upload_ind_msg">
+      <command>CNSS_PLAT_IPC_QMI_FILE_UPLOAD_IND</command>
+      <msg>CNSS_PLAT_IPC_QMI_FILE_UPLOAD_IND</msg>
+      <msgalias></msgalias>
+      <type>message</type>
+      <n>1</n>
+      <sizeof>struct cnss_plat_ipc_qmi_file_upload_ind_msg</sizeof>
+      <wiresize>49</wiresize>
+      <isvarwiresize>1</isvarwiresize>
+      <isarray>0</isarray>
+      <isvararray>0</isvararray>
+      <isenum>0</isenum>
+      <ismask>0</ismask>
+      <ismessage>1</ismessage>
+      <isoptional>0</isoptional>
+      <isstruct>0</isstruct>
+      <isstring>0</isstring>
+      <islengthless>0</islengthless>
+      <set16bitflag>0</set16bitflag>
+      <set32bitflag>0</set32bitflag>
+      <tlvtype>0</tlvtype>
+      <sequence>5</sequence>
+      <description>
+        <TYPE>Indication </TYPE>
+        <SENDER>Service </SENDER>
+        <SCOPE>Unicast </SCOPE>
+      </description>
+      <elementlist>
+        <type identifier="file_name">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>string</type>
+          <primitivetype>string</primitivetype>
+          <n>CNSS_PLAT_IPC_QMI_MAX_FILE_NAME_LEN</n>
+          <csize>33</csize>
+          <sizeof>char * CNSS_PLAT_IPC_QMI_MAX_FILE_NAME_LEN</sizeof>
+          <wiresize>32</wiresize>
+          <isvarwiresize>1</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>1</isstring>
+          <islengthless>1</islengthless>
+          <tlvtype>0x01</tlvtype>
+          <typedescription> File name</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+        <type identifier="file_id">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>uint32</type>
+          <primitivetype>uint32</primitivetype>
+          <n>1</n>
+          <csize>7</csize>
+          <sizeof>uint32_t</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x02</tlvtype>
+          <typedescription> File ID corresponding to file name.</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+        <type identifier="file_size">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>uint32</type>
+          <primitivetype>uint32</primitivetype>
+          <n>1</n>
+          <csize>4</csize>
+          <sizeof>uint32_t</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x03</tlvtype>
+          <typedescription> File total size</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+      </elementlist>
+    </type>
+    <type identifier="cnss_plat_ipc_qmi_file_upload_req_msg">
+      <command>CNSS_PLAT_IPC_QMI_FILE_UPLOAD</command>
+      <msg>CNSS_PLAT_IPC_QMI_FILE_UPLOAD_REQ</msg>
+      <msgalias></msgalias>
+      <type>message</type>
+      <n>1</n>
+      <sizeof>struct cnss_plat_ipc_qmi_file_upload_req_msg</sizeof>
+      <wiresize>14</wiresize>
+      <isvarwiresize>0</isvarwiresize>
+      <isarray>0</isarray>
+      <isvararray>0</isvararray>
+      <isenum>0</isenum>
+      <ismask>0</ismask>
+      <ismessage>1</ismessage>
+      <isoptional>0</isoptional>
+      <isstruct>0</isstruct>
+      <isstring>0</isstring>
+      <islengthless>0</islengthless>
+      <set16bitflag>0</set16bitflag>
+      <set32bitflag>0</set32bitflag>
+      <tlvtype>0</tlvtype>
+      <sequence>6</sequence>
+      <description>
+        <TYPE>Request </TYPE>
+        <SENDER>Control point </SENDER>
+      </description>
+      <elementlist>
+        <type identifier="file_id">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>uint32</type>
+          <primitivetype>uint32</primitivetype>
+          <n>1</n>
+          <csize>4</csize>
+          <sizeof>uint32_t</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x01</tlvtype>
+          <typedescription> File id</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+        <type identifier="seg_index">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>uint32</type>
+          <primitivetype>uint32</primitivetype>
+          <n>1</n>
+          <csize>4</csize>
+          <sizeof>uint32_t</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x02</tlvtype>
+          <typedescription> File buf seg index</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+      </elementlist>
+    </type>
+    <type identifier="cnss_plat_ipc_qmi_file_upload_resp_msg">
+      <command>CNSS_PLAT_IPC_QMI_FILE_UPLOAD</command>
+      <msg>CNSS_PLAT_IPC_QMI_FILE_UPLOAD_RESP</msg>
+      <msgalias></msgalias>
+      <type>message</type>
+      <n>1</n>
+      <sizeof>struct cnss_plat_ipc_qmi_file_upload_resp_msg</sizeof>
+      <wiresize>61470</wiresize>
+      <isvarwiresize>1</isvarwiresize>
+      <isarray>0</isarray>
+      <isvararray>0</isvararray>
+      <isenum>0</isenum>
+      <ismask>0</ismask>
+      <ismessage>1</ismessage>
+      <isoptional>0</isoptional>
+      <isstruct>0</isstruct>
+      <isstring>0</isstring>
+      <islengthless>0</islengthless>
+      <set16bitflag>0</set16bitflag>
+      <set32bitflag>0</set32bitflag>
+      <tlvtype>0</tlvtype>
+      <sequence>7</sequence>
+      <description>
+        <TYPE>Response </TYPE>
+        <SENDER>Service </SENDER>
+      </description>
+      <elementlist>
+        <type identifier="resp">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>qmi_response_type</type>
+          <primitivetype>struct</primitivetype>
+          <n>1</n>
+          <csize>8</csize>
+          <sizeof>qmi_response_type_v01</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x02</tlvtype>
+          <typedescription> Result Code</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+        <type identifier="file_id">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>uint32</type>
+          <primitivetype>uint32</primitivetype>
+          <n>1</n>
+          <csize>4</csize>
+          <sizeof>uint32_t</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x03</tlvtype>
+          <typedescription> File id</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+        <type identifier="end">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>boolean</type>
+          <primitivetype>boolean</primitivetype>
+          <n>1</n>
+          <csize>1</csize>
+          <sizeof>uint8_t</sizeof>
+          <wiresize>1</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x04</tlvtype>
+          <typedescription> File download msg end marker</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+        <type identifier="seg_index">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>uint32</type>
+          <primitivetype>uint32</primitivetype>
+          <n>1</n>
+          <csize>7</csize>
+          <sizeof>uint32_t</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x05</tlvtype>
+          <typedescription> File buf seg index</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+        <type identifier="seg_buf">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>uint8</type>
+          <primitivetype>uint8</primitivetype>
+          <n>CNSS_PLAT_IPC_QMI_MAX_DATA_SIZE</n>
+          <csize>61441</csize>
+          <sizeof>uint8_t * CNSS_PLAT_IPC_QMI_MAX_DATA_SIZE</sizeof>
+          <wiresize>61440</wiresize>
+          <isvarwiresize>1</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>1</isvararray>
+          <set16bitflag>1</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x06</tlvtype>
+          <typedescription> File seg buf</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield>seg_buf_len</lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+      </elementlist>
+    </type>
+    <type identifier="cnss_plat_ipc_qmi_reg_client_req_msg">
+      <command>CNSS_PLAT_IPC_QMI_REG_CLIENT</command>
+      <msg>CNSS_PLAT_IPC_QMI_REG_CLIENT_REQ</msg>
+      <msgalias></msgalias>
+      <type>message</type>
+      <n>1</n>
+      <sizeof>struct cnss_plat_ipc_qmi_reg_client_req_msg</sizeof>
+      <wiresize>7</wiresize>
+      <isvarwiresize>0</isvarwiresize>
+      <isarray>0</isarray>
+      <isvararray>0</isvararray>
+      <isenum>0</isenum>
+      <ismask>0</ismask>
+      <ismessage>1</ismessage>
+      <isoptional>0</isoptional>
+      <isstruct>0</isstruct>
+      <isstring>0</isstring>
+      <islengthless>0</islengthless>
+      <set16bitflag>0</set16bitflag>
+      <set32bitflag>0</set32bitflag>
+      <tlvtype>0</tlvtype>
+      <sequence>8</sequence>
+      <description>
+        <TYPE>Request </TYPE>
+        <SENDER>Control point </SENDER>
+      </description>
+      <elementlist>
+        <type identifier="client_id">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>cnss_plat_ipc_qmi_client_id</type>
+          <primitivetype>enum</primitivetype>
+          <n>1</n>
+          <csize>8</csize>
+          <sizeof>cnss_plat_ipc_qmi_client_id_v01</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>1</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x10</tlvtype>
+          <typedescription> QMI Client ID</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+      </elementlist>
+    </type>
+    <type identifier="cnss_plat_ipc_qmi_reg_client_resp_msg">
+      <command>CNSS_PLAT_IPC_QMI_REG_CLIENT</command>
+      <msg>CNSS_PLAT_IPC_QMI_REG_CLIENT_RESP</msg>
+      <msgalias></msgalias>
+      <type>message</type>
+      <n>1</n>
+      <sizeof>struct cnss_plat_ipc_qmi_reg_client_resp_msg</sizeof>
+      <wiresize>7</wiresize>
+      <isvarwiresize>0</isvarwiresize>
+      <isarray>0</isarray>
+      <isvararray>0</isvararray>
+      <isenum>0</isenum>
+      <ismask>0</ismask>
+      <ismessage>1</ismessage>
+      <isoptional>0</isoptional>
+      <isstruct>0</isstruct>
+      <isstring>0</isstring>
+      <islengthless>0</islengthless>
+      <set16bitflag>0</set16bitflag>
+      <set32bitflag>0</set32bitflag>
+      <tlvtype>0</tlvtype>
+      <sequence>9</sequence>
+      <description>
+        <TYPE>Response </TYPE>
+        <SENDER>Service </SENDER>
+      </description>
+      <elementlist>
+        <type identifier="resp">
+          <command></command>
+          <carry_name></carry_name>
+          <document_as_mandatory>0</document_as_mandatory>
+          <msg></msg>
+          <type>qmi_response_type</type>
+          <primitivetype>struct</primitivetype>
+          <n>1</n>
+          <csize>8</csize>
+          <sizeof>qmi_response_type_v01</sizeof>
+          <wiresize>4</wiresize>
+          <isvarwiresize>0</isvarwiresize>
+          <isarray>0</isarray>
+          <isvararray>0</isvararray>
+          <set16bitflag>0</set16bitflag>
+          <set32bitflag>0</set32bitflag>
+          <lenfieldoffset>0</lenfieldoffset>
+          <isenum>0</isenum>
+          <ismask>0</ismask>
+          <ismessage>0</ismessage>
+          <isoptional>0</isoptional>
+          <isstruct>0</isstruct>
+          <isstring>0</isstring>
+          <islengthless>0</islengthless>
+          <tlvtype>0x02</tlvtype>
+          <typedescription> Result Code</typedescription>
+          <valuedescription></valuedescription>
+          <provisional></provisional>
+          <allowedenumvals></allowedenumvals>
+          <tlv_intro></tlv_intro>
+          <tlvversion>1.0</tlvversion>
+          <tlv_version_introduced>1.0</tlv_version_introduced>
+          <version></version>
+          <tlvname></tlvname>
+          <fieldname></fieldname>
+          <lenfield></lenfield>
+          <isduplicate>0</isduplicate>
+          <isincludetype>0</isincludetype>
+          <elementlist></elementlist>
+          <rangeChecking></rangeChecking>
+        </type>
+      </elementlist>
+    </type>
+  </section>
+  <section title="service">
+    <identifier>cnss_platform</identifier>
+    <servicenumber>0x42E</servicenumber>
+    <versionnumber>01</versionnumber>
+    <messagelist>
+      <message identifier="CNSS_PLAT_IPC_QMI_INIT_SETUP_REQ">
+        <type>cnss_plat_ipc_qmi_init_setup_req_msg</type>
+        <messageid>0x0001</messageid>
+      </message>
+      <message identifier="CNSS_PLAT_IPC_QMI_INIT_SETUP_RESP">
+        <type>cnss_plat_ipc_qmi_init_setup_resp_msg</type>
+        <messageid>0x0001</messageid>
+      </message>
+      <message identifier="CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD_IND">
+        <type>cnss_plat_ipc_qmi_file_download_ind_msg</type>
+        <messageid>0x0002</messageid>
+      </message>
+      <message identifier="CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD_REQ">
+        <type>cnss_plat_ipc_qmi_file_download_req_msg</type>
+        <messageid>0x0003</messageid>
+      </message>
+      <message identifier="CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD_RESP">
+        <type>cnss_plat_ipc_qmi_file_download_resp_msg</type>
+        <messageid>0x0003</messageid>
+      </message>
+      <message identifier="CNSS_PLAT_IPC_QMI_FILE_UPLOAD_IND">
+        <type>cnss_plat_ipc_qmi_file_upload_ind_msg</type>
+        <messageid>0x0004</messageid>
+      </message>
+      <message identifier="CNSS_PLAT_IPC_QMI_FILE_UPLOAD_REQ">
+        <type>cnss_plat_ipc_qmi_file_upload_req_msg</type>
+        <messageid>0x0005</messageid>
+      </message>
+      <message identifier="CNSS_PLAT_IPC_QMI_FILE_UPLOAD_RESP">
+        <type>cnss_plat_ipc_qmi_file_upload_resp_msg</type>
+        <messageid>0x0005</messageid>
+      </message>
+      <message identifier="CNSS_PLAT_IPC_QMI_REG_CLIENT_REQ">
+        <type>cnss_plat_ipc_qmi_reg_client_req_msg</type>
+        <messageid>0x0006</messageid>
+      </message>
+      <message identifier="CNSS_PLAT_IPC_QMI_REG_CLIENT_RESP">
+        <type>cnss_plat_ipc_qmi_reg_client_resp_msg</type>
+        <messageid>0x0006</messageid>
+      </message>
+    </messagelist>
+  </section>
+
+  <section title="footer"></section>
+  <section title="idl_version">
+    <majornumber>01</majornumber>
+    <minornumber>01</minornumber>
+    <toolmajornumber>6</toolmajornumber>
+    <toolminornumber>14</toolminornumber>
+    <toolspinnumber>7</toolspinnumber>
+    <spinnumber>0</spinnumber>
+  </section>
+
+</IDLDescription>
