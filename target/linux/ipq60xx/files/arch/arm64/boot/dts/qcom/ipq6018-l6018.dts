@@ -299,10 +299,58 @@
 		};
 
 		lte6 {
-			pins = "gpio51";
+			pins = "gpio23";
 			function = "gpio";
 			drive-strength = <8>;
 			bias-pull-down;
+		};
+
+		lte1pwr {
+			pins = "gpio0";
+			function = "gpio";
+			drive-strength = <8>;
+			bias-pull-up;
+			output-high;
+		};
+
+		lte2pwr {
+			pins = "gpio16";
+			function = "gpio";
+			drive-strength = <8>;
+			bias-pull-up;
+			output-high;
+		};
+
+		lte3pwr {
+			pins = "gpio18";
+			function = "gpio";
+			drive-strength = <8>;
+			bias-pull-up;
+			output-high;
+		};
+
+		lte4pwr {
+			pins = "gpio2";
+			function = "gpio";
+			drive-strength = <8>;
+			bias-pull-up;
+			output-high;
+		};
+
+		lte5pwr {
+			pins = "gpio21";
+			function = "gpio";
+			drive-strength = <8>;
+			bias-pull-up;
+			output-high;
+		};
+
+		lte6pwr {
+			pins = "gpio22";
+			function = "gpio";
+			drive-strength = <8>;
+			bias-pull-up;
+			output-high;
 		};
 	};
 };
@@ -475,7 +523,7 @@
 		};
 
 		led@29 {
-			label = "green:lte29";
+			label = "green:lte2";
 			gpios = <&tlmm 29 GPIO_ACTIVE_HIGH>;
 		};
 
@@ -494,10 +542,40 @@
 			gpios = <&tlmm 32 GPIO_ACTIVE_HIGH>;
 		};
 
-		led@51 {
+		led@23 {
 			label = "green:lte6";
-			gpios = <&tlmm 51 GPIO_ACTIVE_HIGH>;
+			gpios = <&tlmm 23 GPIO_ACTIVE_HIGH>;
 		};
+
+		led@0 {
+			label = "green:lte1pwr";
+			gpios = <&tlmm 0 GPIO_ACTIVE_HIGH>;
+		};
+
+		led@16 {
+			label = "green:lte2pwr";
+			gpios = <&tlmm 16 GPIO_ACTIVE_HIGH>;
+		};
+
+		led@18 {
+			label = "green:lte3pwr";
+			gpios = <&tlmm 18 GPIO_ACTIVE_HIGH>;
+		};
+
+		led@2 {
+			label = "green:lte4pwr";
+			gpios = <&tlmm 2 GPIO_ACTIVE_HIGH>;
+		};
+
+		led@21 {
+			label = "green:lte5pwr";
+			gpios = <&tlmm 21 GPIO_ACTIVE_HIGH>;
+		};
+
+		led@22 {
+			label = "green:lte6pwr";
+			gpios = <&tlmm 22 GPIO_ACTIVE_HIGH>;
+		};		
 	};
 };
 
